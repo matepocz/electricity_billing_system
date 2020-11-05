@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/electricity
+    username: root
+    password: test1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8080
+
+cors-policies: http://localhost:4200, http://127.0.0.1:4200
+
+keyStore:
+  password: test1234
