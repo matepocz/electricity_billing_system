@@ -43,7 +43,7 @@ public class JwtProvider {
 
     private PrivateKey getPrivateKey() throws KeyException {
         try {
-            return (PrivateKey) keyStore.getKey("gmistore", keyStorePassword.toCharArray());
+            return (PrivateKey) keyStore.getKey("alias_name", keyStorePassword.toCharArray());
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             throw new KeyException("An error occurred while retrieving private key from the keystore!");
         }
