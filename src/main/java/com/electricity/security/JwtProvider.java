@@ -56,7 +56,7 @@ public class JwtProvider {
 
     private PublicKey getPublicKey() throws KeyException {
         try {
-            return keyStore.getCertificate("gmistore").getPublicKey();
+            return keyStore.getCertificate("alias_name").getPublicKey();
         } catch (KeyStoreException e) {
             throw new KeyException("An error occurred while retrieving public key from the keystore!");
         }
