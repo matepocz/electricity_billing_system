@@ -1,4 +1,4 @@
-package com.electricity;
+package com.electricity.service;
 
 import com.electricity.repository.ContractRepository;
 import com.electricity.service.ContractService;
@@ -33,7 +33,7 @@ public class ContractServiceTest {
     @Test
     public void testGetTotalRatePerUnitAfterContract() {
         double result = contractService.getTotalRatePerUnitAfterContract();
-        assertEquals(58.8, result, 0.001d);
+        assertEquals(40.386, result, 0.001d);
     }
 
     @Test
