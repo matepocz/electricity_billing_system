@@ -43,10 +43,22 @@ public class ContractService {
     }
 
     public double getTotalRatePerUnitAfterContract() {
-        return RATE_PER_UNIT_AFTER_CONTRACT + SYSTEM_USAGE_PER_UNIT + VAT;
+        return (RATE_PER_UNIT_AFTER_CONTRACT + SYSTEM_USAGE_PER_UNIT) * (VAT / 100 + 1);
     }
 
     public double getRatePerUnitAfterYearlyCap() {
         return (RATE_PER_UNIT_AFTER_YEARLY_CAP + SYSTEM_USAGE_PER_UNIT) * (VAT / 100 + 1);
+    }
+
+    public int getYearlyCap() {
+        return YEARLY_CAP;
+    }
+
+    public double getVAT() {
+        return VAT;
+    }
+
+    public double getSystemUsagePerUnit() {
+        return SYSTEM_USAGE_PER_UNIT;
     }
 }
