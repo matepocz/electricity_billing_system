@@ -35,6 +35,12 @@ public class Contract {
     @Column(name = "system_usage_per_unit")
     private double systemUsagePerUnit;
 
+    @Column(name = "rate_after_yearly_cap")
+    private double rateAfterYearlyCap;
+
+    @Column(name = "units_used", columnDefinition = "double default 0.0")
+    private double unitsUsed;
+
     @Column(name = "started")
     private LocalDateTime started;
 
