@@ -18,7 +18,10 @@ public class MeterReading {
     private Long id;
 
     @Column(name = "reading")
-    private double reading;
+    private Double reading;
+
+    @Column(name = "amount_to_pay")
+    private Double amountToPay;
 
     @Column(name = "timestamp")
     private LocalDateTime timestamp;
