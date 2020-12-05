@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/api/v1/meters")
 public class MeterController {
@@ -18,12 +20,10 @@ public class MeterController {
         this.meterService = meterService;
     }
 
-    @PostMapping("/{contractId}")
-    public ResponseEntity<MeterReadingResponse> calculatePayment(
-            @PathVariable("contractId") Long contractId, @RequestParam("reading") Integer reading) {
-        MeterReadingResponse response = meterService.calculatePayment(contractId, reading);
-        return response == null ?
-                new ResponseEntity<>(HttpStatus.BAD_REQUEST) :
-                new ResponseEntity<>(response, HttpStatus.OK);
+    @PostMapping("/send-reading")
+    public ResponseEntity<MeterReadingResponse> calculatePayment(@RequestParam("reading") Integer reading,
+                                                                 Principal principal) {
+        MeterReadingResponse response = meterService.makeMeterReading(reading, principal);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
